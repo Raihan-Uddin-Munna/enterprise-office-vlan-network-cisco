@@ -49,14 +49,14 @@ SW2 provides access connectivity for Administration, HR and IT.
 
 | Port | Device | Data VLAN | Voice VLAN |
 |------|--------|-----------|------------|
-| Fa0/3 | HR-PC1 + IP Phone | 20 | 110 |
+| Fa0/3 | HR-PC1 | 20 | 110 |
 | Fa0/4 | HR-PC2 | 20 | — |
 
 ## IT
 
 | Port | Device | Data VLAN | Voice VLAN |
 |------|--------|-----------|------------|
-| Fa0/5 | IT-PC1 + IP Phone | 30 | 110 |
+| Fa0/5 | IT-PC1| 30 | 110 |
 | Fa0/6 | IT-PC2 | 30 | — |
 
 ## Unused Ports

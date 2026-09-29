@@ -27,8 +27,6 @@ Inter-VLAN communication is handled by the Cisco 2911 router using Router-on-a-S
 | 60 | SUPPORT | Customer Support | 192.168.60.0/24 | 192.168.60.1 |
 | 70 | SERVERS | Server Farm | 192.168.70.0/24 | 192.168.70.1 |
 | 80 | GUEST | Guest Network | 192.168.80.0/24 | 192.168.80.1 |
-| 90 | MANAGEMENT | Network Device Management | 192.168.90.0/24 | 192.168.90.1 |
-| 110 | VOICE | IP Phones / VoIP | 192.168.110.0/24 | 192.168.110.1 |
 | 999 | NATIVE-BLACKHOLE | Unused Native VLAN | No user subnet | None |
 
 ---

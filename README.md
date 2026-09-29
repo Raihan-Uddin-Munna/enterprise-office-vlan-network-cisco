@@ -65,8 +65,7 @@ MunnaTech Solutions Ltd. needs a structured and manageable office network with t
              |       |       |              |
             DHCP    DNS     WEB          FILE SERVER
 
-
-              IP Phones → Voice VLAN 110
+ 
               Guests    → Guest VLAN 80
               Switches  → Management VLAN 90
 ```
@@ -104,7 +103,6 @@ The access switches connect users and end devices, while the distribution switch
 |   70 | SERVERS          | Server Network            | 192.168.70.0/24     | 192.168.70.1    |
 |   80 | GUEST            | Guest Network             | 192.168.80.0/24     | 192.168.80.1    |
 |   90 | MANAGEMENT       | Network Device Management | 192.168.90.0/24     | 192.168.90.1    |
-|  110 | VOICE            | IP Telephony              | 192.168.110.0/24    | 192.168.110.1   |
 |  999 | NATIVE-BLACKHOLE | Unused Native VLAN        | No end-user network | —               |
 
 ### VLAN 999
@@ -196,7 +194,6 @@ VLAN 50
 VLAN 60
 VLAN 70
 VLAN 80
-VLAN 110
       |
     TRUNK
       |
@@ -211,7 +208,7 @@ Example:
 
 ```text
 switchport mode trunk
-switchport trunk allowed vlan 10,20,30,40,50,60,70,80,110
+switchport trunk allowed vlan 10,20,30,40,50,60,70,80
 ```
 
 ---
@@ -259,50 +256,12 @@ G0/0.50  → VLAN 50  → 192.168.50.1
 G0/0.60  → VLAN 60  → 192.168.60.1
 G0/0.70  → VLAN 70  → 192.168.70.1
 G0/0.80  → VLAN 80  → 192.168.80.1
-G0/0.110 → VLAN 110 → 192.168.110.1
 ```
 
 Each subinterface acts as the default gateway for its corresponding VLAN.
 
 ---
-
-# 10. Voice VLAN
-
-IP phones use a dedicated Voice VLAN.
-
-A typical access-port design is:
-
-```text
-        PC
-         |
-         |
-     IP Phone
-         |
-         |
-      Switch
-```
-
-The traffic is logically separated:
-
-```text
-PC       → Data VLAN
-IP Phone → Voice VLAN 110
-```
-
-This allows a PC and IP phone to share the same physical switch port while remaining logically separated.
-
-Example:
-
-```text
-switchport mode access
-switchport access vlan 30
-switchport voice vlan 110
-```
-
-Here, the PC belongs to VLAN 30 while the phone uses VLAN 110.
-
----
-
+ 
 # 11. Server VLAN
 
 Business servers are placed in a dedicated Server VLAN.
@@ -526,7 +485,6 @@ The completed network is tested using both connectivity tests and Cisco IOS veri
 | IT to Server                   | Allowed                        |
 | HR to Finance                  | Restricted according to policy |
 | Switch management reachability | Successful                     |
-| Voice VLAN operation           | Separate from data VLAN        |
 | Trunk VLAN transport           | Verified                       |
 | EtherChannel                   | Operational                    |
 | STP                            | Verified                       |
@@ -569,9 +527,7 @@ This project demonstrates practical knowledge of:
 * Server network design
 * Guest network design
 * Management network design
-* Voice VLAN
 * Basic Layer 2 security
-* DHCP
 * ACL concepts
 * Network documentation
 
@@ -633,7 +589,6 @@ Through this project, I practiced designing, configuring, verifying, documenting
 * 802.1Q Trunking
 * Router-on-a-Stick
 * Inter-VLAN Routing
-* Voice VLAN
 * Server VLAN
 * Guest VLAN
 * EtherChannel

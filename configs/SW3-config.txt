@@ -27,9 +27,6 @@ exit
 vlan 80
 name GUEST
 exit
-vlan 110
-name VOICE
-exit
 vlan 999
 name NATIVE-BLACKHOLE
 exit
@@ -60,17 +57,14 @@ configure terminal
 interface fa0/2
 switchport mode access
 switchport access vlan 40
-switchport voice vlan 110
 exit
 interface fa0/4
 switchport mode access
 switchport access vlan 50
-switchport voice vlan 110
 exit
 interface fa0/6
 switchport mode access
 switchport access vlan 60
-switchport voice vlan 110
 exit
 
 
@@ -79,12 +73,12 @@ configure terminal
 int fa0/20
 sw mo tr
 switchport trunk native vlan 999
-sw tr allo vlan 40,50,60,70,110
+sw tr allo vlan 40,50,60,70
 exit
 int fa0/23
 sw mo tr
 switchport trunk native vlan 999
-sw tr allo vlan 40,50,60,70,110
+sw tr allo vlan 40,50,60,70
 exit
 
 enable
@@ -95,7 +89,7 @@ exit
 interface port-channel 2
 switchport mode trunk
 switchport trunk native vlan 999
-switchport trunk allowed vlan 40,50,60,70,110
+switchport trunk allowed vlan 40,50,60,70
 exit
 interface range fa0/23
 channel-group 2 mode active
@@ -103,6 +97,6 @@ exit
 interface port-channel 2
 switchport mode trunk
 switchport trunk native vlan 999
-switchport trunk allowed vlan 40,50,60,70,110
+switchport trunk allowed vlan 40,50,60,70
 exit
 
